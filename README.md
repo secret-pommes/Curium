@@ -16,7 +16,7 @@ Website will be written in Next.JS
 -Battle Pass
 -maybe more
 
-###GameServer part:
+### GameServer-Part:
 -Quests
 -Item Shop
 -Vbucks System
