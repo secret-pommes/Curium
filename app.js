@@ -19,7 +19,7 @@ const SSLServer = https.createServer(
 
 SSLServer.listen(port, () => {
   functions.ServerRPC(`Server started listening on port: ${port}`);
-  require("./struct/xmpp/index.js");
+  //require("./struct/xmpp/index.js");
 }).on("error", (err) => {
   if ((err.code = "EADDRINUSE")) {
     functions.ServerError(`Port ${port} is already in use!`);

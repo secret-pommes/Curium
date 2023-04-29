@@ -1,10 +1,17 @@
 const CLIC = require("cli-color");
 
+function getTime() {
+  const time = new Date().toLocaleDateString();
+  return time;
+}
+
 function ServerRPC(data) {
-  console.log(CLIC.cyan("[RPC] " + data));
+  const currentDate = getTime();
+  console.log(CLIC.cyan(`[${currentDate}][RPC] ${data}`));
 }
 function ServerError(data) {
-  console.log(CLIC.red("[ERROR] " + data));
+  const currentDate = getTime();
+  console.log(CLIC.red(`[${currentDate}][ERROR] ${data}`));
 }
 
 module.exports = {
