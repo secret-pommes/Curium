@@ -8,15 +8,15 @@ Website will be written in Next.JS
 
 
 ### Planned:
-Account System with website
-Cloudstorage
-XMPP
-Matchmaker
-Queue
-Battle Pass
-maybe more
+-Account System with website
+-Cloudstorage
+-XMPP
+-Matchmaker
+-Queue
+-Battle Pass
+-maybe more
 
-- GameServer part:
-Quests
-Item Shop
-Vbucks System
+###GameServer part:
+-Quests
+-Item Shop
+-Vbucks System
