@@ -1,9 +1,21 @@
 {
+  "author": {
+    "name": "Secret1337"
+  },
+  "version": "0.1",
+  "scripts": {
+    "start": "node app.js",
+    "install": "npm i",
+    "dev": "nodemon app.js"
+  },
   "dependencies": {
     "cli-color": "^2.0.3",
     "discord.js": "^14.9.0",
     "express": "^4.18.2",
+    "fs": "^0.0.1-security",
     "https": "^1.0.0",
+    "mongoose": "^7.1.0",
+    "nodemon": "^2.0.22",
     "path": "^0.12.7"
   }
 }

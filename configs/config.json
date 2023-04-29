@@ -1,5 +1,8 @@
 {
   "Server": {
     "Port": 8443
+  },
+  "XMPP": {
+    "Port": 80
   }
 }
