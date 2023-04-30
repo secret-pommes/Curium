@@ -11,4 +11,8 @@ app.get("/content/api/pages/fortnite-game", (req, res) => {
   res.json(content);
 });
 
+app.get("/catalog/api/shared/bulk/offers", (req, res) => {
+  res.json({});
+});
+
 module.exports = app;

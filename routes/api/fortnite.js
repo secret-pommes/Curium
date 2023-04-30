@@ -115,16 +115,18 @@ app.get("/api/calendar/v1/timeline", (req, res) => {
   });
 });
 
-app.get(
-  "/api/game/v2/matchmakingservice/ticket/player/:accountId/*",
-  (req, res) => {
-    res.json({
-      serviceUrl: "ws://127.0.0.1:80",
-      ticketType: "mms-player",
-      payload: "69=",
-      signature: "420=",
-    });
-    res.end();
-  }
-);
+app.get("/api/game/v2/matchmakingservice/ticket/player/*", (req, res) => {
+  res.json({
+    serviceUrl: "ws://26.103.104.86:80", // matchmaker service
+    ticketType: "mms-player",
+    payload: "69=",
+    signature: "420=",
+  });
+  res.end();
+});
+
+app.get("/api/storefront/v2/catalog", (req, res) => {
+  res.redirect("https://api.nitestats.com/v1/epic/store");
+});
+
 module.exports = app;

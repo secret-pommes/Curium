@@ -4,6 +4,7 @@ const app = express();
 let userAccountId = "username@fn.dev";
 
 app.post("/api/oauth/token", async (req, res) => {
+  currentUser = "username@fn.dev"
   res.json({
     access_token: "fortnitetoken",
     expires_in: 28800,
@@ -12,13 +13,13 @@ app.post("/api/oauth/token", async (req, res) => {
     refresh_token: "fortnitetoken",
     refresh_expires: 86400,
     refresh_expires_at: "9999-12-02T01:12:01.100Z",
-    account_id: userAccountId,
+    account_id: currentUser,
     client_id: "fortniteclientid",
     internal_client: true,
     client_service: "fortnite",
-    displayName: userAccountId,
+    displayName: currentUser,
     app: "fortnite",
-    in_app_id: userAccountId,
+    in_app_id: currentUser,
     device_id: "fortnitedeviceid",
   });
 });
@@ -40,7 +41,7 @@ app.delete("/api/oauth/sessions/kill", (req, res) => {
 app.get("/api/public/account/:accountId", (req, res) => {
   res.json({
     id: req.params.accountId,
-    displayName: userAccountId,
+    displayName: req.params.accountId,
     name: "user",
     email: userAccountId + "@epicgames.com",
     failedLoginAttempts: 0,
