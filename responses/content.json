@@ -209,7 +209,7 @@
       "_type": "Battle Royale News",
       "messages": [
         {
-          "image": "https://127.0.0.1:8443/frontendcontent/apibanner.png",
+          "image": "https://raw.githubusercontent.com/secret-pommes/Curium/main/.github/resources/frontend_imgs/apibanner.png",
           "hidden": false,
           "_type": "CommonUI Simple Message Base",
           "adspace": "Curium API",
@@ -1338,44 +1338,7 @@
     "lastModified": "2018-08-28T15:50:37.174Z",
     "_locale": "en-US"
   },
-  "tournamentinformation": {
-    "tournament_info": {
-      "tournaments": [
-        {
-          "title_color": "FFFFFF",
-          "loading_screen_image": "https://fortnite-public-service-prod11.ol.epicgames.com/images/lawin.jpg",
-          "background_text_color": "1B1B1B",
-          "background_right_color": "DD091A",
-          "poster_back_image": "https://fortnite-public-service-prod11.ol.epicgames.com/images/lawin.jpg",
-          "_type": "Tournament Display Info",
-          "pin_earned_text": "lawin is the winner!",
-          "tournament_display_id": "s11_switchcup",
-          "highlight_color": "FFFFFF",
-          "schedule_info": "November 2nd & 3rd: 2pm - 5pm JST",
-          "primary_color": "FFFFFF",
-          "flavor_description": "cool",
-          "poster_front_image": "https://fortnite-public-service-prod11.ol.epicgames.com/images/lawin.jpg",
-          "short_format_title": "Event Sessions",
-          "title_line_2": "boomer",
-          "title_line_1": "Solo",
-          "shadow_color": "1B1B1B",
-          "details_description": "ok",
-          "background_left_color": "F81B2D",
-          "long_format_title": "nice",
-          "poster_fade_color": "DD091A",
-          "secondary_color": "1B1B1B",
-          "playlist_tile_image": "https://fortnite-public-service-prod11.ol.epicgames.com/images/lawin.jpg",
-          "base_color": "FFFFFF"
-        }
-      ],
-      "_type": "Tournaments Info"
-    },
-    "_title": "tournamentinformation",
-    "_noIndex": false,
-    "_activeDate": "2018-11-13T22:32:47.734Z",
-    "lastModified": "2019-11-01T17:33:35.346Z",
-    "_locale": "en-US"
-  },
+  
   "emergencynotice": {
     "news": {
       "_type": "Battle Royale News",
@@ -1383,8 +1346,8 @@
         {
           "hidden": false,
           "_type": "CommonUI Simple Message Base",
-          "title": "LawinServer",
-          "body": "Server created by Lawin (Twitter: @lawin_010)\nDiscord: https://discord.gg/KJ8UaHZ",
+          "title": "Curium API",
+          "body": "Made by: Secret1337 (secret_pommes#1337)\nMy Github: https://github.com/secret-pommes",
           "spotlight": true
         }
       ]
@@ -1408,8 +1371,8 @@
           "gamemodes": [],
           "hidden": false,
           "_type": "CommonUI Emergency Notice Base",
-          "title": "LawinServer",
-          "body": "Server created by Lawin (Twitter: @lawin_010)\nDiscord: https://discord.gg/KJ8UaHZ"
+          "title": "Curium API",
+          "body": "Made by: Secret1337 (secret_pommes#1337)\nMy Github: https://github.com/secret-pommes"
         }
       ]
     },
@@ -5915,74 +5878,15 @@
   "battleroyalenews": {
     "news": {
       "_type": "Battle Royale News",
-      "motds": [
-        {
-          "entryType": "Website",
-          "image": "https://fortnite-public-service-prod11.ol.epicgames.com/images/motd.png",
-          "tileImage": "https://fortnite-public-service-prod11.ol.epicgames.com/images/motd-s.png",
-          "videoMute": false,
-          "hidden": false,
-          "tabTitleOverride": "LawinServer",
-          "_type": "CommonUI Simple Message MOTD",
-          "title": {
-            "ar": "مرحبًا بك في LawinServer!",
-            "en": "Welcome to LawinServer!",
-            "de": "Willkommen bei LawinServer!",
-            "es": "¡Bienvenidos a LawinServer!",
-            "es-419": "¡Bienvenidos a LawinServer!",
-            "fr": "Bienvenue sur LawinServer !",
-            "it": "Benvenuto in LawinServer!",
-            "ja": "LawinServerへようこそ！",
-            "ko": "LawinServer에 오신 것을 환영합니다!",
-            "pl": "Witaj w LawinServerze!",
-            "pt-BR": "Bem-vindo ao LawinServer!",
-            "ru": "Добро пожаловать в LawinServer!",
-            "tr": "LavinServer'a Hoş Geldiniz!"
-          },
-          "body": {
-            "ar": "استمتع بتجربة لعب استثنائية!",
-            "en": "Have a phenomenal gaming experience!",
-            "de": "Wünsche allen ein wunderbares Spielerlebnis!",
-            "es": "¡Que disfrutes de tu experiencia de videojuegos!",
-            "es-419": "¡Ten una experiencia de juego espectacular!",
-            "fr": "Un bon jeu à toutes et à tous !",
-            "it": "Ti auguriamo un'esperienza di gioco fenomenale!",
-            "ja": "驚きの体験をしよう！",
-            "ko": "게임에서 환상적인 경험을 해보세요!",
-            "pl": "Życzymy fenomenalnej gry!",
-            "pt-BR": "Tenha uma experiência de jogo fenomenal!",
-            "ru": "Желаю невероятно приятной игры!",
-            "tr": "Muhteşem bir oyun deneyimi yaşamanı dileriz!"
-          },
-          "offerAction": "ShowOfferDetails",
-          "videoLoop": false,
-          "videoStreamingEnabled": false,
-          "sortingPriority": 90,
-          "websiteButtonText": "Discord",
-          "websiteURL": "https://discord.gg/KJ8UaHZ",
-          "id": "61fb3dd8-f23d-45cc-9058-058ab223ba5c",
-          "videoAutoplay": false,
-          "videoFullscreen": false,
-          "spotlight": false
-        }
-      ],
+      "motds": [],
       "messages": [
         {
-          "image": "https://fortnite-public-service-prod11.ol.epicgames.com/images/discord.png",
+          "image": "https://raw.githubusercontent.com/secret-pommes/Curium/main/.github/resources/frontend_imgs/apibanner.png",
           "hidden": false,
           "_type": "CommonUI Simple Message Base",
-          "adspace": "DISCORD!",
-          "title": "Join our discord server!",
-          "body": "https://discord.gg/KJ8UaHZ",
-          "spotlight": false
-        },
-        {
-          "image": "https://fortnite-public-service-prod11.ol.epicgames.com/images/lawin.jpg",
-          "hidden": false,
-          "_type": "CommonUI Simple Message Base",
-          "adspace": "ENJOY!",
-          "title": "LawinServer",
-          "body": "Enjoy LawinServer!",
+          "adspace": "Curium API",
+          "title": "Welcome!",
+          "body": "Source: https://github.com/secret-pommes/Curium",
           "spotlight": false
         }
       ]
@@ -5998,57 +5902,7 @@
   },
   "battleroyalenewsv2": {
     "news": {
-      "motds": [
-        {
-          "entryType": "Website",
-          "image": "https://fortnite-public-service-prod11.ol.epicgames.com/images/motd.png",
-          "tileImage": "https://fortnite-public-service-prod11.ol.epicgames.com/images/motd-s.png",
-          "videoMute": false,
-          "hidden": false,
-          "tabTitleOverride": "LawinServer",
-          "_type": "CommonUI Simple Message MOTD",
-          "title": {
-            "ar": "مرحبًا بك في LawinServer!",
-            "en": "Welcome to LawinServer!",
-            "de": "Willkommen bei LawinServer!",
-            "es": "¡Bienvenidos a LawinServer!",
-            "es-419": "¡Bienvenidos a LawinServer!",
-            "fr": "Bienvenue sur LawinServer !",
-            "it": "Benvenuto in LawinServer!",
-            "ja": "LawinServerへようこそ！",
-            "ko": "LawinServer에 오신 것을 환영합니다!",
-            "pl": "Witaj w LawinServerze!",
-            "pt-BR": "Bem-vindo ao LawinServer!",
-            "ru": "Добро пожаловать в LawinServer!",
-            "tr": "LavinServer'a Hoş Geldiniz!"
-          },
-          "body": {
-            "ar": "استمتع بتجربة لعب استثنائية!",
-            "en": "Have a phenomenal gaming experience!",
-            "de": "Wünsche allen ein wunderbares Spielerlebnis!",
-            "es": "¡Que disfrutes de tu experiencia de videojuegos!",
-            "es-419": "¡Ten una experiencia de juego espectacular!",
-            "fr": "Un bon jeu à toutes et à tous !",
-            "it": "Ti auguriamo un'esperienza di gioco fenomenale!",
-            "ja": "驚きの体験をしよう！",
-            "ko": "게임에서 환상적인 경험을 해보세요!",
-            "pl": "Życzymy fenomenalnej gry!",
-            "pt-BR": "Tenha uma experiência de jogo fenomenal!",
-            "ru": "Желаю невероятно приятной игры!",
-            "tr": "Muhteşem bir oyun deneyimi yaşamanı dileriz!"
-          },
-          "offerAction": "ShowOfferDetails",
-          "videoLoop": false,
-          "videoStreamingEnabled": false,
-          "sortingPriority": 90,
-          "websiteButtonText": "Discord",
-          "websiteURL": "https://discord.gg/KJ8UaHZ",
-          "id": "61fb3dd8-f23d-45cc-9058-058ab223ba5c",
-          "videoAutoplay": false,
-          "videoFullscreen": false,
-          "spotlight": false
-        }
-      ],
+      "motds": [],
       "_type": "Battle Royale News v2"
     },
     "jcr:isCheckedOut": true,
@@ -6087,21 +5941,12 @@
       "_type": "Battle Royale News",
       "messages": [
         {
-          "image": "https://fortnite-public-service-prod11.ol.epicgames.com/images/discord.png",
+          "image": "https://raw.githubusercontent.com/secret-pommes/Curium/main/.github/resources/frontend_imgs/apibanner.png",
           "hidden": false,
           "_type": "CommonUI Simple Message Base",
-          "adspace": "DISCORD!",
-          "title": "Join our discord server!",
-          "body": "https://discord.gg/KJ8UaHZ",
-          "spotlight": false
-        },
-        {
-          "image": "https://fortnite-public-service-prod11.ol.epicgames.com/images/lawin.jpg",
-          "hidden": false,
-          "_type": "CommonUI Simple Message Base",
-          "adspace": "ENJOY!",
-          "title": "LawinServer",
-          "body": "Enjoy LawinServer!",
+          "adspace": "Welcome!",
+          "title": "Curium API",
+          "body": "Source: https://github.com/secret-pommes/Curium",
           "spotlight": false
         }
       ]
@@ -6119,25 +5964,7 @@
     "_title": "shop-sections",
     "sectionList": {
       "_type": "ShopSectionList",
-      "sections": [
-        {
-          "bSortOffersByOwnership": false,
-          "bShowIneligibleOffersIfGiftable": false,
-          "bEnableToastNotification": true,
-          "background": {
-            "stage": "default",
-            "_type": "DynamicBackground",
-            "key": "vault"
-          },
-          "_type": "ShopSection",
-          "landingPriority": 70,
-          "bHidden": false,
-          "sectionId": "Featured",
-          "bShowTimer": true,
-          "sectionDisplayName": "LawinServer Item Shop",
-          "bShowIneligibleOffers": true
-        }
-      ]
+      "sections": []
     },
     "_noIndex": false,
     "_activeDate": "2022-12-01T23:45:00.000Z",
