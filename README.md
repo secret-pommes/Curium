@@ -4,7 +4,8 @@ Written in Node.JS
 Website will be written in Next.JS
 
 ### Features:
--Not Working Backend
+-Go into the Lobby
+
 
 
 ### Planned:
