@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-let userAccountId = "h@.";
+let userAccountId = "username@fn.dev";
 
 app.post("/api/oauth/token", async (req, res) => {
   res.json({

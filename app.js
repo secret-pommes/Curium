@@ -41,7 +41,6 @@ app.use("/fortnite", require("./routes/api/fortnite.js"));
 app.use("/friends", require("./routes/api/friends.js"));
 app.use("/lightswitch", require("./routes/api/lightswitch.js"));
 app.use("/mcp", require("./routes/api/mcp.js"));
-app.use("/timeline", require("./routes/api/timeline.js"));
 
 /*app.use((req, res, next) => {
   res.json(["Error 404, File / Endpoint Not Found"]);
