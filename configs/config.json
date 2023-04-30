@@ -1,4 +1,5 @@
 {
+  "devMode":true,
   "Server": {
     "Port": 8443,
     "BlockOtherPlatforms": false

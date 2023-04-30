@@ -54,9 +54,9 @@ app.get("/api/calendar/v1/timeline", (req, res) => {
 
   const activeEvent = [
     {
-        "eventType": `EventFlag.${lobby}`,
-        "activeUntil": "9999-01-01T00:00:00.000Z",
-        "activeSince": "2018-01-01T00:00:00.000Z"
+      eventType: `EventFlag.${lobby}`,
+      activeUntil: "9999-01-01T00:00:00.000Z",
+      activeSince: "2018-01-01T00:00:00.000Z",
     },
     {
       eventType: "EventFlag.RoadTrip2018",
@@ -114,4 +114,17 @@ app.get("/api/calendar/v1/timeline", (req, res) => {
     },
   });
 });
+
+app.get(
+  "/api/game/v2/matchmakingservice/ticket/player/:accountId/*",
+  (req, res) => {
+    res.json({
+      serviceUrl: "ws://127.0.0.1:80",
+      ticketType: "mms-player",
+      payload: "69=",
+      signature: "420=",
+    });
+    res.end();
+  }
+);
 module.exports = app;

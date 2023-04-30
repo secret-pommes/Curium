@@ -17,19 +17,21 @@ const SSLServer = https.createServer(
   app
 );
 
-SSLServer.listen(port, () => {
-  functions.ServerRPC(`Server started listening on port: ${port}`);
-  //require("./struct/mongoose.js");
-  //require("./struct/xmpp/index.js");
-}).on("error", (err) => {
-  if ((err.code = "EADDRINUSE")) {
-    functions.ServerError(`Port ${port} is already in use!`);
-  }
-});
-
-/*app.listen(port, () => {
-  functions.ServerRPC("Started listening on port: " + port);
-});*/
+if (config.devMode == true) {
+  app.listen(8080, () => {
+    functions.ServerRPC(`Started on port: 8080\nDev Mode is active. No HTTPS listening`);
+  });
+} else {
+  SSLServer.listen(port, () => {
+    functions.ServerRPC(`Server started listening on port: ${port}`);
+    //require("./struct/mongoose.js");
+    //require("./struct/xmpp/index.js");
+  }).on("error", (err) => {
+    if ((err.code = "EADDRINUSE")) {
+      functions.ServerError(`Port ${port} is already in use!`);
+    }
+  });
+}
 
 // endpoints of Fortnite and website
 app.use(require("./routes/index.js"));
@@ -41,7 +43,3 @@ app.use("/fortnite", require("./routes/api/fortnite.js"));
 app.use("/friends", require("./routes/api/friends.js"));
 app.use("/lightswitch", require("./routes/api/lightswitch.js"));
 app.use("/mcp", require("./routes/api/mcp.js"));
-
-/*app.use((req, res, next) => {
-  res.json(["Error 404, File / Endpoint Not Found"]);
-});*/
