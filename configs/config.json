@@ -1,6 +1,7 @@
 {
   "Server": {
-    "Port": 8443
+    "Port": 8443,
+    "BlockOtherPlatforms": false
   },
   "XMPP": {
     "Port": 80
