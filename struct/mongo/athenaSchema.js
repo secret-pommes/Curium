@@ -70,3 +70,5 @@ const athenaSchema = new mongo.Schema({
     default: "",
   },
 });
+
+module.exports = mongo.model("users", athenaSchema);

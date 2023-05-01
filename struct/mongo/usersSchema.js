@@ -19,3 +19,5 @@ const userSchema = new mongo.Schema({
     default: crypto.randomBytes(16).toString("hex"),
   },
 });
+
+module.exports = mongo.model("users", userSchema);

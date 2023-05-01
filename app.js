@@ -42,10 +42,11 @@ setTimeout(() => {
     .then(functions.ServerRPC(`Server is now connected to MongoDB!`));
 }, 20);
 
-// endpoints of Fortnite and website
-app.use(require("./routes/index.js"));
-app.use(require("./routes/api/main.js"));
-app.use("/account", require("./routes/api/account.js"));
-app.use("/fortnite", require("./routes/api/fortnite.js"));
-app.use("/friends", require("./routes/api/friends.js"));
-app.use("/lightswitch", require("./routes/api/lightswitch.js"));
+// rest of the server structure
+app.use(require("./struct/accountSystem.js")); // Account Creation System
+app.use(require("./routes/index.js")); // Website Endpoints
+app.use(require("./routes/api/main.js")); // some endpoints that nobody cares
+app.use("/account", require("./routes/api/account.js")); // fortnite's account route
+app.use("/fortnite", require("./routes/api/fortnite.js")); // fortnite's fortnite route
+app.use("/friends", require("./routes/api/friends.js")); // fortnite's friends route
+app.use("/lightswitch", require("./routes/api/lightswitch.js")); // fortnite's lightswitch (server-status)

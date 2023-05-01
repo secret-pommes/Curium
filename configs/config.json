@@ -4,8 +4,7 @@
     "Port": 8080
   },
   "Server": {
-    "Port": 8443,
-    "BlockOtherPlatforms": false
+    "Port": 1337
   },
   "XMPP": {
     "Port": 80
@@ -14,7 +13,7 @@
     "connect": "mongodb://127.0.0.1:27017/CuriumDatabase"
   },
   "Matchmaking": {
-    "blockPC": true,
+    "blockPC": false,
     "matchmakerHost": "ws://192.168.178.56:80",
     "gameserverHost": "192.168.178.97:7777"
   }

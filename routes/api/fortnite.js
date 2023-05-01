@@ -127,18 +127,22 @@ app.get("/api/game/v2/matchmakingservice/ticket/player/*", (req, res) => {
       .json([
         "You cant join a Nintendo Switch match, that would be really unfair :>",
       ]);
+  } else {
+    res.json({
+      serviceUrl: config.Matchmaking.matchmakerHost,
+      ticketType: "mms-player",
+      payload: "69=",
+      signature: "420=",
+    });
   }
-  res.json({
-    serviceUrl: config.Matchmaking.matchmakerHost,
-    ticketType: "mms-player",
-    payload: "69=",
-    signature: "420=",
-  });
-  res.end();
 });
 
 app.get("/api/storefront/v2/catalog", (req, res) => {
-  res.sendStatus(503).end();
+  res.sendStatus(204).end();
+});
+
+app.get("/api/feedback/log-snapshot/*", (req, res) => {
+  res.status(204).end();
 });
 
 module.exports = app;

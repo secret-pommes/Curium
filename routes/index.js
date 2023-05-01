@@ -30,4 +30,8 @@ app.get("/assets/img/background/paradise.jpg", (req, res) => {
   );
 });
 
+app.get("/assets/js/jquery.min.js", (req, res) => {
+  res.sendFile(path.join(__dirname, "/../public/assets/js/jquery.min.js"));
+});
+
 module.exports = app;

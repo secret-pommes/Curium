@@ -10,6 +10,7 @@
     <title>Curium | SwitchMP - Create Account</title>
   </head>
   <script src="/assets/js/index.js"></script>
+  <script src="/assets/js/jquery.min.js"></script>
   <body class="CreAccBody">
     <center>
       <a class="CreAccHeader">Create your account</a>
@@ -17,33 +18,38 @@
     <form class="createAccountFormSTYLE" id="createAccountForm">
       <br /><br /><br />
       <a>In-game Username</a>
+      <br>
+      <a style="color: red;">Warning: You cannot change your username.</a>
       <br />
       <input
+        class="input"
         type="text"
         id="ingameUsername"
         name="ingameUsername"
-        placeholder="Enter a cool name!"
+        placeholder="Secret1337"
       />
       <br /><br />
       <a>Your Email</a>
       <br />
       <input
+        class="input"
         type="text"
-        id="Email"
-        name="Email"
+        id="email"
+        name="email"
         placeholder="secret@switch.lol"
       />
       <br /><br />
       <a>A good password</a>
       <br />
       <input
+        class="input"
         type="password"
         id="password"
         name="password"
-        placeholder="dont use 123456"
+        placeholder="1337"
       />
       <br /><br />
-      <button type="submit">Create Account</button>
+      <button class="createButton" type="submit">Create Account</button>
     </form>
   </body>
 </html>

@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 
+// maybe i will add the alpha lightswitch later idk
+
 const banned = false;
 
 app.get("/api/service/bulk/status", (req, res) => {
@@ -21,5 +23,6 @@ app.get("/api/service/bulk/status", (req, res) => {
     },
   ]);
 });
+
 
 module.exports = app;

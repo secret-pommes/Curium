@@ -18,3 +18,5 @@ const friendSchema = new mongo.Schema({
     required: true,
   },
 });
+
+module.exports = mongo.model("users", friendSchema);
