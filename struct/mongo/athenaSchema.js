@@ -1,49 +1,4 @@
-const express = require("express");
-const app = express();
 const mongo = require("mongoose");
-const crypto = require("crypto");
-
-app.get("/curium/api/users/", (req, res) => {
-  // shows user counter (soon?)
-});
-
-const userSchema = new mongo.Schema({
-  email: {
-    type: String,
-    required: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-  displayName: {
-    type: String,
-    required: true,
-  },
-  accountId: {
-    type: String,
-    default: crypto.randomBytes(16).toString("hex"),
-  },
-});
-
-const friendSchema = new mongo.Schema({
-  accepted: {
-    type: Array,
-    default: [],
-  },
-  incoming: {
-    type: Array,
-    default: [],
-  },
-  outgoing: {
-    type: Array,
-    default: [],
-  },
-  accountId: {
-    type: String,
-    required: true,
-  },
-});
 
 const athenaSchema = new mongo.Schema({
   accountId: {
@@ -115,10 +70,3 @@ const athenaSchema = new mongo.Schema({
     default: "",
   },
 });
-
-module.exports = mongo.model(
-  "mongoose",
-  athenaSchema,
-  friendSchema,
-  userSchema
-);

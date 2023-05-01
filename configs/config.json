@@ -1,10 +1,16 @@
 {
-  "devMode":false,
+  "devMode": {
+    "active": false,
+    "Port": 8080
+  },
   "Server": {
     "Port": 8443,
     "BlockOtherPlatforms": false
   },
   "XMPP": {
     "Port": 80
+  },
+  "DATABASE": {
+    "connect": "mongodb://127.0.0.1:27017/CuriumDatabase"
   }
 }

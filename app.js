@@ -9,6 +9,7 @@ const config = require("./configs/config.json");
 const functions = require("./struct/functions.js");
 
 const port = config.Server.Port;
+const devPort = config.devMode.Port;
 const SSLServer = https.createServer(
   {
     key: fs.readFileSync(path.join(__dirname, "/cert/key.pem")),
@@ -17,15 +18,22 @@ const SSLServer = https.createServer(
   app
 );
 
-if (config.devMode == true) {
-  app.listen(8080, () => {
-    functions.ServerRPC(`Started on port: 8080\nDev Mode is active. No HTTPS listening`);
+// dosnt look good but its working ^^
+mongo.connect(config.DATABASE.connect).then(functions.ServerRPC(`Server is now connected to MongoDB!`));
+//require("./struct/mongo/athenaSchema.js");
+//require("./struct/mongo/friendSchema.js");
+//require("./struct/mongo/frontendSchema.js")
+//require("./struct/mongo/usersSchema.js");
+
+if (config.devMode.active == true) {
+  app.listen(devPort, () => {
+    functions.ServerRPC(
+      `Started on port: ${devPort}\nDev Mode is active. No HTTPS listening`
+    );
   });
 } else {
   SSLServer.listen(port, () => {
     functions.ServerRPC(`Server started listening on port: ${port}`);
-    //require("./struct/mongoose.js");
-    //require("./struct/xmpp/index.js");
   }).on("error", (err) => {
     if ((err.code = "EADDRINUSE")) {
       functions.ServerError(`Port ${port} is already in use!`);
