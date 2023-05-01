@@ -3,20 +3,7 @@
   "_activeDate": "2017-08-30T03:20:48.050Z",
   "lastModified": "2019-11-01T17:33:35.346Z",
   "_locale": "en-US",
-  "loginmessage": {
-    "_title": "LoginMessage",
-    "loginmessage": {
-      "_type": "CommonUI Simple Message",
-      "message": {
-        "_type": "CommonUI Simple Message Base",
-        "title": "Curium API",
-        "body": "Made by: Secret1337 (secret_pommes#1337)\nMy Github: https://github.com/secret-pommes\nSource of the Curium API: https://github.com/secret-pommes/Curium"
-      }
-    },
-    "_activeDate": "2017-07-19T13:14:04.490Z",
-    "lastModified": "2018-03-15T07:10:22.222Z",
-    "_locale": "en-US"
-  },
+  "loginmessage": {},
   "survivalmessage": {
     "_title": "survivalmessage",
     "overrideablemessage": {
@@ -212,9 +199,9 @@
           "image": "https://raw.githubusercontent.com/secret-pommes/Curium/main/.github/resources/frontend_imgs/apibanner.png",
           "hidden": false,
           "_type": "CommonUI Simple Message Base",
-          "adspace": "Curium API",
-          "title": "Welcome!",
-          "body": "Source: https://github.com/secret-pommes/Curium",
+          "adspace": "Welcome!",
+          "title": "Nintendo Switch Multiplayer!",
+          "body": "Welcome to Curium / SwitchMP where you can revisit Chapter 1 Season 5 with multiplayer on the Nintendo Switch",
           "spotlight": false
         }
       ]
@@ -1347,7 +1334,7 @@
           "hidden": false,
           "_type": "CommonUI Simple Message Base",
           "title": "Curium API | SwitchMP",
-          "body": "Made by: Secret1337 (secret_pommes#1337)\nMy Github: https://github.com/secret-pommes",
+          "body": "Made by: Secret1337 (secret_pommes#1337)\nDiscord: https://discord.gg/V7PRRQHG44",
           "spotlight": true
         }
       ]
@@ -5884,9 +5871,9 @@
           "image": "https://raw.githubusercontent.com/secret-pommes/Curium/main/.github/resources/frontend_imgs/apibanner.png",
           "hidden": false,
           "_type": "CommonUI Simple Message Base",
-          "adspace": "Curium API",
-          "title": "Welcome!",
-          "body": "Source: https://github.com/secret-pommes/Curium",
+          "adspace": "Welcome!",
+          "title": "Nintendo Switch Multiplayer!",
+          "body": "Welcome to Curium / SwitchMP where you can revisit Chapter 1 Season 5 with multiplayer on the Nintendo Switch",
           "spotlight": false
         }
       ]
@@ -5945,8 +5932,8 @@
           "hidden": false,
           "_type": "CommonUI Simple Message Base",
           "adspace": "Welcome!",
-          "title": "Curium API",
-          "body": "Source: https://github.com/secret-pommes/Curium",
+          "title": "Nintendo Switch Multiplayer!",
+          "body": "Welcome to Curium / SwitchMP where you can revisit Chapter 1 Season 5 with multiplayer on the Nintendo Switch",
           "spotlight": false
         }
       ]

@@ -21,13 +21,6 @@ app.get("/api/cloudstorage/user/*/:file", (req, res) => {
 });
 
 app.post("/api/game/v2/tryPlayOnPlatform/account/*", async (req, res) => {
-  const config = require("../../configs/config.json");
-  if (
-    config.Server.BlockOtherPlatforms == true &&
-    req.headers["user-agent"].includes("PC", "PS4", "Xbox", "MacOS")
-  ) {
-    res.status(403);
-  }
   res.setHeader("Content-Type", "text/plain");
   res.send(true);
 });
@@ -119,7 +112,7 @@ app.get("/api/calendar/v1/timeline", (req, res) => {
 
 app.get("/api/game/v2/matchmakingservice/ticket/player/*", (req, res) => {
   if (
-    config.Matchmaking.blockPC == true &&
+    config.Matchmaking.blockNonSwitchPlatforms == true &&
     req.headers["user-agent"].includes("Windows")
   ) {
     res

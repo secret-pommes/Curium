@@ -1,7 +1,7 @@
 {
   "devMode": {
-    "active": false,
-    "Port": 8080
+    "active": true,
+    "Port": 80
   },
   "Server": {
     "Port": 1337
@@ -13,7 +13,7 @@
     "connect": "mongodb://127.0.0.1:27017/CuriumDatabase"
   },
   "Matchmaking": {
-    "blockPC": false,
+    "blockNonSwitchPlatforms": false,
     "matchmakerHost": "ws://192.168.178.56:80",
     "gameserverHost": "192.168.178.97:7777"
   }
