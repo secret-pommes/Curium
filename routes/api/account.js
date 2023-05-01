@@ -4,7 +4,7 @@ const app = express();
 let userAccountId = "username@fn.dev";
 
 app.post("/api/oauth/token", async (req, res) => {
-  currentUser = "username@fn.dev"
+  currentUser = "username@fn.dev";
   res.json({
     access_token: "fortnitetoken",
     expires_in: 28800,
@@ -59,6 +59,10 @@ app.get("/api/public/account/:accountId", (req, res) => {
     minorExpected: false,
     minorStatus: "UNKNOWN",
   });
+});
+
+app.get("/api/oauth/verify", (req, res) => {
+  res.status(204).end();
 });
 
 module.exports = app;

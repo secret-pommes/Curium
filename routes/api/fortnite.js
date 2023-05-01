@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const path = require("path");
 
+const config = require("../../configs/config.json");
+
 app.get("/api/v2/versioncheck/*", (req, res) => {
   res.json({ type: "NO_UPDATE" });
 });
@@ -116,8 +118,18 @@ app.get("/api/calendar/v1/timeline", (req, res) => {
 });
 
 app.get("/api/game/v2/matchmakingservice/ticket/player/*", (req, res) => {
+  if (
+    config.Matchmaking.blockPC == true &&
+    req.headers["user-agent"].includes("Windows")
+  ) {
+    res
+      .status(403)
+      .json([
+        "You cant join a Nintendo Switch match, that would be really unfair :>",
+      ]);
+  }
   res.json({
-    serviceUrl: "ws://26.103.104.86:80", // matchmaker service
+    serviceUrl: config.Matchmaking.matchmakerHost,
     ticketType: "mms-player",
     payload: "69=",
     signature: "420=",
@@ -126,7 +138,7 @@ app.get("/api/game/v2/matchmakingservice/ticket/player/*", (req, res) => {
 });
 
 app.get("/api/storefront/v2/catalog", (req, res) => {
-  res.redirect("https://api.nitestats.com/v1/epic/store");
+  res.sendStatus(503).end();
 });
 
 module.exports = app;

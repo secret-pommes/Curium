@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+.background {
+  background-image: url("/assets/img/background/paradise.jpg");
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.background-text {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  border: 5px solid #eea108;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+footer {
+  color: white;
+  position: absolute;
+  text-align: center;
+  bottom: 1%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+}
+
+.CreAccBody {
+  background: #000;
+}
+
+.CreAccHeader {
+  color: white;
+  font-size: 50px;
+}
+
+.createAccountFormSTYLE {
+  text-align: center;
+  color: white;
+}
