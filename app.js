@@ -45,9 +45,8 @@ if (config.devMode.active == true) {
 app.use(require("./routes/index.js"));
 app.use(require("./routes/api/main.js"));
 app.use("/account", require("./routes/api/account.js"));
-app.use("/content", require("./routes/api/content.js"));
 app.use("/datarouter", require("./routes/api/datarouter.js"));
 app.use("/fortnite", require("./routes/api/fortnite.js"));
 app.use("/friends", require("./routes/api/friends.js"));
 app.use("/lightswitch", require("./routes/api/lightswitch.js"));
-app.use("/mcp", require("./routes/api/mcp.js"));
+
