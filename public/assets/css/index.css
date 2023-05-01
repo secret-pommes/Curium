@@ -45,18 +45,16 @@ footer {
   font-size: 20px;
 }
 
-.CreAccBody {
-  background: #000;
-}
-
 .CreAccHeader {
   color: white;
   font-size: 50px;
 }
 
 .createAccountFormSTYLE {
+  font-size: 25px;
   text-align: center;
   color: white;
+  filter: none;
 }
 
 .createButton {

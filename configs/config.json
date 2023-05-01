@@ -1,10 +1,11 @@
 {
   "devMode": {
-    "active": true,
-    "Port": 80
+    "active": false,
+    "Port": 8080
   },
   "Server": {
-    "Port": 1337
+    "UseExternDomain": true,
+    "Port": 8443
   },
   "XMPP": {
     "Port": 80
