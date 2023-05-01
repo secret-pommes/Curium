@@ -10,6 +10,7 @@ app.get("/api/accountSystem/status", (req, res) => {
 });
 
 app.post("/api/accountSystem/signup", (req, res) => {
+  console.error("sucks ass bro");
   const account =
     req.body.email && req.body.ingameUsername && req.body.password;
   // IMPORTANT ADD IF SOMEONE ALREADY HAS THE SAME USERNAME / DISPLAYNAME
