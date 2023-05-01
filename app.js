@@ -18,23 +18,35 @@ const SSLServer = https.createServer(
   app
 );
 
-if(config.Server.UseExternDomain == true){
-  app.listen(80, ()=>{
-    functions.ServerRPC("Server is listening on port 80!");
-  }).on("error", (err) => {
-    if ((err.code = "EADDRINUSE")) {
-      functions.ServerError(`Port ${port} is already in use!`);
-    }
-  });
-} else if(config.devMode.active == true){
-  app.listen(devPort, ()=>{
-    functions.ServerRPC(`Server is listening on port ${devPort}\nDev mode is active!`);
-  }).on("error", (err) => {
-    if ((err.code = "EADDRINUSE")) {
-      functions.ServerError(`Port ${port} is already in use!`);
-    }
-  });
-} else if(config.devMode.active == false && config.Server.UseExternDomain == false){
+// needed for account system to work
+app.use(express.urlencoded({ extended: true }));
+
+if (config.Server.UseExternDomain == true) {
+  app
+    .listen(80, () => {
+      functions.ServerRPC("Server is listening on port 80!");
+    })
+    .on("error", (err) => {
+      if ((err.code = "EADDRINUSE")) {
+        functions.ServerError(`Port ${port} is already in use!`);
+      }
+    });
+} else if (config.devMode.active == true) {
+  app
+    .listen(devPort, () => {
+      functions.ServerRPC(
+        `Server is listening on port ${devPort}\nDev mode is active!`
+      );
+    })
+    .on("error", (err) => {
+      if ((err.code = "EADDRINUSE")) {
+        functions.ServerError(`Port ${port} is already in use!`);
+      }
+    });
+} else if (
+  config.devMode.active == false &&
+  config.Server.UseExternDomain == false
+) {
   SSLServer.listen(port, () => {
     functions.ServerRPC(`Server started listening on port: ${port}`);
   }).on("error", (err) => {

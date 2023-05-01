@@ -11,8 +11,14 @@ app.get("/api/accountSystem/status", (req, res) => {
 
 // Creates a new user account
 app.post("/api/accountSystem/createNewAccount", (req, res) => {
-  var account = req.body.email && req.body.displayName && req.body.password;
-  console.log(account);
+  var account_displayName = req.body.displayName;
+  var account_email = req.body.email;
+  var account_password = req.body.password;
+  console.log(account_displayName);
+  console.log(account_email);
+  console.log(account_password);
 });
+
+console.log("mein penis ist groß")
 
 module.exports = app;
