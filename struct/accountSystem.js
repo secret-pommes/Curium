@@ -1,17 +1,23 @@
-console.log("Account-System-V2 is loaded!");
+const express = require("express");
+const app = express();
+const crypto = require("crypto");
+const bcrypt = require("bcrypt");
 
-function createAccount() {
-  $.ajax({
-    type: "POST",
-    url: "/api/accountSystem/createNewAccount",
-    data: {
-      displayName: document.getElementById("ingameUsername").value,
-      email: document.getElementById("email").value,
-      password: document.getElementById("password").value,
-    },
-    success: (res) => {
-      window.location("/accountCreated");
-    },
-  });
-  // add fallback and errors prevention
-}
+const usersSchema = require("./mongo/usersSchema.js");
+
+app.get("/api/accountSystem/status", (req, res) => {
+  res.json(["Account System is online!"]);
+});
+
+// Creates a new user account
+app.post("/api/accountSystem/createNewAccount", (req, res) => {
+  var account_displayName = req.body.displayName;
+  var account_email = req.body.email;
+  var account_password = req.body.password;
+  console.log(account_displayName);
+  console.log(account_email);
+  console.log(account_password);
+});
+
+
+module.exports = app;
