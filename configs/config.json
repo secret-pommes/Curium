@@ -16,6 +16,13 @@
   "Matchmaking": {
     "blockNonSwitchPlatforms": false,
     "matchmakerHost": "ws://192.168.178.56:80",
-    "gameserverHost": "192.168.178.97:7777"
+    "gameservers": {
+      "//": "gameservers, if you change the custom matchmaking code to '2'",
+      "//": "you will connect to server '2'",
+      "Main": "192.168.178.97:7777",
+      "server2": "127.0.0.1:7777",
+      "server3": "127.0.0.1:7777",
+      "server4": "127.0.0.1:7777"
+    }
   }
 }
