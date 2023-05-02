@@ -7,6 +7,7 @@ Website will be written in Next.JS
 ### Features:
 -Go into the Lobby
 <br>
+-Website to create your account.
 
 
 
