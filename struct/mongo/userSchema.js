@@ -20,4 +20,4 @@ const schema = new mongo.Schema({
   },
 });
 
-module.exports = mongo.model("users", schema);
+module.exports = mongo.model("schema", schema);
