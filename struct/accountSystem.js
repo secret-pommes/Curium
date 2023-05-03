@@ -21,17 +21,13 @@ app.post("/api/accountSystem/createNewAccount", (req, res) => {
     bcrypt.genSaltSync(10)
   );
 
-  var account = new userSchema({
-    accountId: accountId,
+  const newAccount = new userSchema({
+    account: accountId,
     displayName: account_displayName,
     email: account_email,
     password: account_password,
   });
-  var athena = new athenaSchema({ accountId: accountId });
-  var friend = new friendSchema({ accountId: accountId });
-  account.save();
-  athena.save();
-  friend.save();
+  newAccount.save();
 });
 
 module.exports = app;

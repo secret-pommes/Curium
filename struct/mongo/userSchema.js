@@ -1,7 +1,8 @@
 const mongo = require("mongoose");
+const Schema = mongo.Schema;
 const crypto = require("crypto");
 
-const schema = new mongo.Schema({
+const accountSchema = new Schema({
   email: {
     type: String,
     required: true,
@@ -20,4 +21,4 @@ const schema = new mongo.Schema({
   },
 });
 
-module.exports = mongo.model("schema", schema);
+module.exports = mongo.model("Account_Schema", accountSchema);

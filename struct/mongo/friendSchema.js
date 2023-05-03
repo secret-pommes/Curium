@@ -1,6 +1,7 @@
 const mongo = require("mongoose");
+const Schema = mongo.Schema;
 
-const schema = new mongo.Schema({
+const friendSchema = new Schema({
   accepted: {
     type: Array,
     default: [],
@@ -19,4 +20,4 @@ const schema = new mongo.Schema({
   },
 });
 
-module.exports = mongo.model("schema", schema);
+module.exports = mongo.model("Friend_Schema", friendSchema);

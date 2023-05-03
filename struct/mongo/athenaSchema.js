@@ -1,6 +1,7 @@
 const mongo = require("mongoose");
+const Schema = mongo.Schema;
 
-const schema = new mongo.Schema({
+const athenaSchema = new Schema({
   accountId: {
     type: String,
     required: true,
@@ -71,4 +72,4 @@ const schema = new mongo.Schema({
   },
 });
 
-module.exports = mongo.model("schema", schema);
+module.exports = mongo.model("Athena_Schema", athenaSchema);
