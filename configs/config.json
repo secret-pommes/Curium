@@ -1,4 +1,7 @@
 {
+  "Logging":{
+    "AccountLogs":true
+  },
   "devMode": {
     "active": false,
     "Port": 8080

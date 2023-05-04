@@ -3,6 +3,7 @@ const app = express();
 const crypto = require("crypto");
 const bcrypt = require("bcrypt");
 
+const functions = require("./functions.js");
 const accountSchema = require("./mongo/accountSchema.js");
 const athenaSchema = require("./mongo/athenaSchema.js");
 const friendSchema = require("./mongo/friendSchema.js");
@@ -54,7 +55,9 @@ app.post("/api/accountSystem/createNewAccount", (req, res) => {
   newAccount.save();
   newAthena.save();
   newFriend.save();
-  console.log(account_displayName);
+  functions.AccountSystemLog(
+    `Account for ${account_displayName} was successfully created.`
+  );
 });
 
 module.exports = app;
