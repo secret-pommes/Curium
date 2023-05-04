@@ -20,7 +20,7 @@ const friendSchema = new Schema(
       required: true,
     },
   },
-  { collation: "Athena" }
+  { collation: "Friends" }
 );
 
 module.exports = mongo.model("Friend_Schema", friendSchema);
