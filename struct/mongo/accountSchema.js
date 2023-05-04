@@ -18,7 +18,7 @@ const accountSchema = new Schema(
     },
     accountId: {
       type: String,
-      default: crypto.randomBytes(16).toString("hex"),
+      default: 1337,
     },
   },
   { collation: "Account" }

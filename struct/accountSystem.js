@@ -22,16 +22,39 @@ app.post("/api/accountSystem/createNewAccount", (req, res) => {
   );
 
   const newAccount = new accountSchema({
-    account: accountId,
+    accountId: accountId,
     displayName: account_displayName,
     email: account_email,
     password: account_password,
   });
-  const newAthena = new athenaSchema({});
-  const newFriend = new friendSchema({});
+  const newAthena = new athenaSchema({
+    accountId: accountId,
+    lvl: 1,
+    banner: "",
+    bannercolor: "",
+    character: "",
+    charactervariants: "",
+    backpack: "",
+    pickaxe: "",
+    pickaxevariants: "",
+    glider: "",
+    glidervaraints: "",
+    skydivecontrail: "",
+    dance: "",
+    itemwrap: "",
+    musicpack: "",
+    loadingscreen: "",
+  });
+  const newFriend = new friendSchema({
+    accepted: [],
+    incoming: [],
+    outgoing: [],
+    accountId: accountId,
+  });
   newAccount.save();
   newAthena.save();
   newFriend.save();
+  console.log(account_displayName);
 });
 
 module.exports = app;
