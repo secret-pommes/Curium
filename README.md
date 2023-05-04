@@ -1,20 +1,22 @@
 # Curium
+
 A Fortnite backend made for Nintendo Switch (should work for PC)
+<br>
 WARNING: Curium is currently designed for Season 5 [V5.30 - V5.41]
 Written in Node.JS
 Website will be written in Next.JS
 
 ### Features:
+
 -Go into the Lobby
 <br>
--Website to create your account.
-
-
+-Account System (WIP)
 
 ### Planned:
--Account System with website
-<br>
+
 -Cloudstorage
+<br>
+-ClientSettings
 <br>
 -XMPP
 <br>
@@ -22,12 +24,11 @@ Website will be written in Next.JS
 <br>
 -Queue
 <br>
--Battle Pass
-<br>
--maybe more
-<br>
+-Battle Pass and leveling in the pass.
+<br><br>
 
 ### GameServer-Part:
+
 -Quests
 <br>
 -Item Shop
