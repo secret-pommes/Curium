@@ -21,43 +21,50 @@ app.post("/api/accountSystem/createNewAccount", (req, res) => {
     req.body.password,
     bcrypt.genSaltSync(10)
   );
-
-  const newAccount = new accountSchema({
-    accountId: accountId,
-    displayName: account_displayName,
-    email: account_email,
-    password: account_password,
-  });
-  const newAthena = new athenaSchema({
-    accountId: accountId,
-    lvl: 1,
-    banner: "",
-    bannercolor: "",
-    character: "",
-    charactervariants: "",
-    backpack: "",
-    pickaxe: "",
-    pickaxevariants: "",
-    glider: "",
-    glidervaraints: "",
-    skydivecontrail: "",
-    dance: "",
-    itemwrap: "",
-    musicpack: "",
-    loadingscreen: "",
-  });
-  const newFriend = new friendSchema({
-    accepted: [],
-    incoming: [],
-    outgoing: [],
-    accountId: accountId,
-  });
-  newAccount.save();
-  newAthena.save();
-  newFriend.save();
-  functions.AccountSystemLog(
-    `Account for ${account_displayName} was successfully created.`
-  );
+  //console.log(account_displayName);
+  //console.log(account_email);
+  //console.log(account_password);
+  if (typeof account_displayName !== "undefined") { return 0 };
+  if (typeof account_email !== "undefined") { return 0 };
+  if (typeof account_password !== "undefined") { return 0 };
+  if (account_displayName && account_email && account_password) {
+    const newAccount = new accountSchema({
+      accountId: accountId,
+      displayName: account_displayName,
+      email: account_email,
+      password: account_password,
+    });
+    const newAthena = new athenaSchema({
+      accountId: accountId,
+      lvl: 1,
+      banner: "",
+      bannercolor: "",
+      character: "",
+      charactervariants: "",
+      backpack: "",
+      pickaxe: "",
+      pickaxevariants: "",
+      glider: "",
+      glidervaraints: "",
+      skydivecontrail: "",
+      dance: "",
+      itemwrap: "",
+      musicpack: "",
+      loadingscreen: "",
+    });
+    const newFriend = new friendSchema({
+      accepted: [],
+      incoming: [],
+      outgoing: [],
+      accountId: accountId,
+    });
+    newAccount.save();
+    newAthena.save();
+    newFriend.save();
+    functions.AccountSystemLog(
+      `Account for ${account_displayName} was successfully created.`
+    );
+  }
 });
 
 module.exports = app;

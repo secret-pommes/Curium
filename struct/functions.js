@@ -1,5 +1,4 @@
 const CLIC = require("cli-color");
-const config = require("../configs/config.json");
 
 function getTime() {
   const time = new Date().toLocaleDateString();
@@ -12,9 +11,7 @@ function ServerRPC(data) {
 }
 function AccountSystemLog(data) {
   const currentDate = getTime();
-  if (config.Logging.AccountLogs == true) {
-    console.log(CLIC.green(`[${currentDate}][Account-System] ${data}`));
-  }
+  console.log(CLIC.green(`[${currentDate}][Account-System] ${data}`));
 }
 function ServerError(data) {
   const currentDate = getTime();

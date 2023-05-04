@@ -1,7 +1,4 @@
 {
-  "Logging":{
-    "AccountLogs":true
-  },
   "devMode": {
     "active": false,
     "Port": 8080
@@ -14,14 +11,14 @@
     "Port": 80
   },
   "DATABASE": {
-    "connect": "mongodb://127.0.0.1:27017/Curium_db"
+    "connect": "mongodb://127.0.0.1:27017/database_curium"
   },
   "Matchmaking": {
     "blockNonSwitchPlatforms": false,
-    "matchmakerHost": "ws://192.168.178.56:80",
+    "matchmakerHost": "wss://curium.secrets-server.xyz:443",
     "gameservers": {
-      "//": "gameservers, if you change the custom matchmaking code to '2'",
-      "//": "you will connect to server '2'",
+      "//": "gameservers, if you change the custom matchmaking code to 'server2'",
+      "//": "you will connect to server 'server2'",
       "Main": "192.168.178.97:7777",
       "server2": "127.0.0.1:7777",
       "server3": "127.0.0.1:7777",

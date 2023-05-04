@@ -12,8 +12,6 @@
   <script src="/assets/js/index.js"></script>
   <script src="/assets/js/jquery.min.js"></script>
   <body class="CreAccBody" bgcolor="000">
-    <!--idk why but on https://pommesmitketchup.com you need to have this-->
-
     <center>
       <a class="CreAccHeader">Create your account</a>
     </center>
@@ -51,8 +49,9 @@
         placeholder="1337"
       />
       <br /><br />
-      <button onclick="createAccount()" class="createButton" type="submit">Create Account</button>
+      <button  onclick="createAccount(); window.location.href='/accountCreated'" class="createButton" type="submit">
+      </button>
     </form>
-    <footer>[Currium Account System BETA]</footer>
+    <footer>Curium Account System V2 (prod)</footer>
   </body>
 </html>
