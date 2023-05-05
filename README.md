@@ -6,8 +6,11 @@ A Fortnite backend made for Nintendo Switch (should work for PC)
 Codebase is written in JavaScript (node.js)
 <br>
 <br>
-WARNING: Curium is currently designed for Season 5 [V5.30 - V5.41]
 
+### Supported Version:
+
+-Season 4 - 5
+-Season 6 - 9 (but with not player pawn in lobby)
 
 ### Features:
 
