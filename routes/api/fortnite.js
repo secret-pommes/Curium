@@ -40,76 +40,6 @@ app.get("/api/storefront/v2/keychain", (req, res) => {
   res.json(keychains);
 });
 
-app.get("/api/calendar/v1/timeline", (req, res) => {
-  const season = 5;
-  const lobby = "LobbySeason5";
-  const weeklyStoreEnd = "9999-01-01T00:00:00Z";
-  const sectionStoreEnds = "9999-01-01T00:00:00.000Z";
-  const dailyStoreEnd = "9999-01-01T00:00:00Z";
-
-  const activeEvent = [
-    {
-      eventType: `EventFlag.${lobby}`,
-      activeUntil: "9999-01-01T00:00:00.000Z",
-      activeSince: "2018-01-01T00:00:00.000Z",
-    },
-    {
-      eventType: "EventFlag.RoadTrip2018",
-      activeUntil: "9999-01-01T00:00:00.000Z",
-      activeSince: "2018-01-01T00:00:00.000Z",
-    },
-    {
-      eventType: "EventFlag.Horde",
-      activeUntil: "9999-01-01T00:00:00.000Z",
-      activeSince: "2018-01-01T00:00:00.000Z",
-    },
-    {
-      eventType: "EventFlag.Anniversary2018_BR",
-      activeUntil: "9999-01-01T00:00:00.000Z",
-      activeSince: "2018-01-01T00:00:00.000Z",
-    },
-    {
-      eventType: "EventFlag.LTM_Heist",
-      activeUntil: "9999-01-01T00:00:00.000Z",
-      activeSince: "2018-01-01T00:00:00.000Z",
-    },
-  ];
-  res.json({
-    channels: {
-      "client-matchmaking": {
-        states: [],
-        cacheExpire: "9999-01-01T22:28:47.830Z",
-      },
-      "client-events": {
-        states: [
-          {
-            validFrom: "2018-01-01T20:28:47.830Z",
-            activeEvents: activeEvent,
-            state: {
-              activeStorefronts: [],
-              eventNamedWeights: {},
-              seasonNumber: season,
-              seasonTemplateId: `AthenaSeason:athenaseason${season}`,
-              matchXpBonusPoints: 0,
-              seasonBegin: "2018-01-01T13:00:00Z",
-              seasonEnd: "9999-01-01T14:00:00Z",
-              seasonDisplayedEnd: "9999-01-01T07:30:00Z",
-              weeklyStoreEnd: weeklyStoreEnd,
-              stwEventStoreEnd: "9999-01-01T00:00:00.000Z",
-              stwWeeklyStoreEnd: "9999-01-01T00:00:00.000Z",
-              sectionStoreEnds: {
-                Featured: sectionStoreEnds,
-              },
-              dailyStoreEnd: dailyStoreEnd,
-            },
-          },
-        ],
-        cacheExpire: "9999-01-01T22:28:47.830Z",
-      },
-    },
-  });
-});
-
 app.get("/api/game/v2/matchmakingservice/ticket/player/*", (req, res) => {
   if (
     config.Matchmaking.blockNonSwitchPlatforms == true &&
@@ -136,6 +66,74 @@ app.get("/api/storefront/v2/catalog", (req, res) => {
 
 app.get("/api/feedback/log-snapshot/*", (req, res) => {
   res.status(204).end();
+});
+
+app.get("/api/calendar/v1/timeline", (req, res) => {
+  var currentSeason = req.headers["user-agent"].split("-")[1].split(".")[0];
+  var currentVersion = req.headers["user-agent"].split("-");
+  var season = currentSeason;
+  if (currentSeason == "10") {
+    season = "x";
+  }
+  //if()
+  console.log("DEBUG: Version: " + currentVersion);
+
+  console.log("DEBUG: Season: " + season);
+  // timings
+  const weeklyStoreEnd = "9999-01-01T00:00:00Z";
+  const sectionStoreEnds = "9999-01-01T00:00:00.000Z";
+  const dailyStoreEnd = "9999-01-01T00:00:00Z";
+
+  // events
+  var activeEvents = [
+    {
+      eventType: `EventFlag.LobbySeason${season}`,
+      activeUntil: "9999-12-31T23:59:59.999Z",
+      activeSince: "2019-12-31T23:59:59.999Z",
+    },
+  ];
+
+  res.json({
+    channels: {
+      "client-matchmaking": {
+        states: [],
+        cacheExpire: "9999-01-01T22:28:47.830Z",
+      },
+      "client-events": {
+        states: [
+          {
+            validFrom: "2018-01-01T20:28:47.830Z",
+
+            activeEvents: activeEvents,
+
+            state: {
+              activeStorefronts: [],
+              eventNamedWeights: {},
+              seasonNumber: season,
+              seasonTemplateId: `AthenaSeason:athenaseason${season}`,
+              matchXpBonusPoints: 0,
+              seasonBegin: "2018-01-01T13:00:00Z",
+              seasonEnd: "9999-01-01T14:00:00Z",
+              seasonDisplayedEnd: "9999-01-01T07:30:00Z",
+              weeklyStoreEnd: weeklyStoreEnd,
+              stwEventStoreEnd: "9999-01-01T00:00:00.000Z",
+              stwWeeklyStoreEnd: "9999-01-01T00:00:00.000Z",
+              sectionStoreEnds: {
+                Featured: sectionStoreEnds,
+              },
+
+              dailyStoreEnd: dailyStoreEnd,
+            },
+          },
+        ],
+        cacheExpire: "9999-01-01T22:28:47.830Z",
+      },
+    },
+  });
+});
+
+app.get("/api/game/v2/events/tournamentandhistory/*", (req, res) => {
+  res.status(204);
 });
 
 module.exports = app;
