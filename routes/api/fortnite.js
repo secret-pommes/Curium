@@ -136,4 +136,8 @@ app.get("/api/game/v2/events/tournamentandhistory/*", (req, res) => {
   res.status(204);
 });
 
+app.post("/api/game/v2/chat/*", (req, res) => {
+  res.json({ GlobalChatRooms: [{ roomName: "fortnite" }] });
+});
+
 module.exports = app;

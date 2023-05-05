@@ -61,6 +61,16 @@ app.get("/api/public/account/:accountId", (req, res) => {
   });
 });
 
+app.get("/api/public/account", (req, res) => {
+  res.json([
+    {
+      id: userAccountId,
+      displayName: userAccountId,
+      externalAuths: {},
+    },
+  ]);
+});
+
 app.get("/api/oauth/verify", (req, res) => {
   res.status(204).end();
 });
