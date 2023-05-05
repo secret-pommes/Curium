@@ -10,6 +10,7 @@ Codebase is written in JavaScript (node.js)
 ### Supported Version:
 
 -Season 4 - 5
+<br>
 -Season 6 - 9 (but with not player pawn in lobby)
 
 ### Features:
