@@ -7,7 +7,7 @@ Codebase is written in JavaScript (node.js)
 <br>
 <br>
 
-### Supported Version:
+### Supported Versions:
 
 -Season 4 - 5
 <br>
