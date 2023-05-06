@@ -44,7 +44,7 @@ function CreateErr(
   });
 }
 
-function CreAccess(user, clientId, deviceId, grant_type, expires_in) {
+function CreAccess(account, clientId, deviceId, grant_type, expires_in) {
   var access_token = jwt.sign(
     {
       app: "fortnite",
