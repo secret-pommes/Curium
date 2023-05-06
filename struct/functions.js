@@ -48,14 +48,14 @@ function CreAccess(user, clientId, deviceId, grant_type, expires_in) {
   var access_token = jwt.sign(
     {
       app: "fortnite",
-      sub: user.accountId,
+      sub: account.accountId,
       dvid: deviceId,
       mver: false,
       clid: clientId,
-      dn: user.username,
+      dn: account.username,
       am: grant_type,
       p: 1492,
-      iai: user.accountId,
+      iai: account.accountId,
       sec: 1,
       clsvc: "fortnite",
       t: "s",
