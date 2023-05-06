@@ -1,4 +1,5 @@
 const CLIC = require("cli-color");
+const jwt = require("jsonwebtoken");
 
 function getTime() {
   const time = new Date().toLocaleDateString();
@@ -43,4 +44,38 @@ function CreateErr(
   });
 }
 
-module.exports = { ServerRPC, ServerError, AccountSystemLog, CreateErr };
+function CreAccess(user, clientId, deviceId, grant_type, expires_in) {
+  var access_token = jwt.sign(
+    {
+      app: "fortnite",
+      sub: user.accountId,
+      dvid: deviceId,
+      mver: false,
+      clid: clientId,
+      dn: user.username,
+      am: grant_type,
+      p: 1492,
+      iai: user.accountId,
+      sec: 1,
+      clsvc: "fortnite",
+      t: "s",
+      ic: true,
+      jti: 1492,
+      creation_date: new Date(),
+      hours_expire: expires_in,
+    },
+    global.jtw_secret,
+    {
+      expiresIn: `${expires_in}h`,
+    }
+  );
+  return access_token;
+}
+
+module.exports = {
+  ServerRPC,
+  ServerError,
+  AccountSystemLog,
+  CreateErr,
+  CreAccess,
+};

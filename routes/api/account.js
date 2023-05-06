@@ -1,27 +1,38 @@
 const express = require("express");
 const app = express();
+const jwt = require("jsonwebtoken");
 
-let userAccountId = "username@fn.dev";
+const accountSchema = require("../../struct/mongo/accountSchema.js");
+const athenaSchema = require("../../struct/mongo/athenaSchema.js");
+const friendSchema = require("../../struct/mongo/friendSchema.js");
+const frontendSchema = require("../../struct/mongo/frontendSchema.js");
+
+// accountId of player
+var accountId = "Secret1337";
 
 app.post("/api/oauth/token", async (req, res) => {
-  currentUser = "username@fn.dev";
+  var access_token;
+  var device_id;
+  
+
   res.json({
-    access_token: "fortnitetoken",
+    access_token: `eg1~${access_token}`,
     expires_in: 28800,
     expires_at: "9999-12-02T01:12:01.100Z",
     token_type: "bearer",
-    refresh_token: "fortnitetoken",
+    refresh_token: `eg1~${access_token}`,
     refresh_expires: 86400,
     refresh_expires_at: "9999-12-02T01:12:01.100Z",
-    account_id: currentUser,
+    account_id: req.user.accountId,
     client_id: "fortniteclientid",
     internal_client: true,
     client_service: "fortnite",
-    displayName: currentUser,
+    displayName: req.user.username,
     app: "fortnite",
-    in_app_id: currentUser,
-    device_id: "fortnitedeviceid",
+    in_app_id: req.user.accountId,
+    device_id: device_id,
   });
+  console.log(accountId);
 });
 
 app.get("/api/public/account/*/externalAuths", (req, res) => {
@@ -39,11 +50,12 @@ app.delete("/api/oauth/sessions/kill", (req, res) => {
 });
 
 app.get("/api/public/account/:accountId", (req, res) => {
+  accountId = req.params.accountId;
   res.json({
     id: req.params.accountId,
     displayName: req.params.accountId,
-    name: "user",
-    email: userAccountId + "@epicgames.com",
+    name: req.params.accountId,
+    email: accountId + "@epicgames.com",
     failedLoginAttempts: 0,
     lastLogin: new Date().toISOString(),
     numberOfDisplayNameChanges: 0,
@@ -59,16 +71,23 @@ app.get("/api/public/account/:accountId", (req, res) => {
     minorExpected: false,
     minorStatus: "UNKNOWN",
   });
+  console.log(accountId);
 });
 
 app.get("/api/public/account", (req, res) => {
-  res.json([
-    {
-      id: userAccountId,
-      displayName: userAccountId,
-      externalAuths: {},
-    },
-  ]);
+  var final = [];
+
+  if (Array.isArray(req.query.accountId)) {
+    var users = accountSchema
+      .find({
+        accountId: {
+          $in: req.query.accountId,
+        },
+        banned: false,
+      })
+      .lean();
+  }
+  res.json(final);
 });
 
 app.get("/api/oauth/verify", (req, res) => {
