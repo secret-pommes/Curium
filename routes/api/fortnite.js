@@ -1,14 +1,25 @@
 const express = require("express");
 const app = express();
-const path = require("path");
 
 const config = require("../../configs/config.json");
+var currentSeason = "1";
 
 app.get("/api/v2/versioncheck/*", (req, res) => {
   res.json({ type: "NO_UPDATE" });
 });
 
 app.get("/api/cloudstorage/system", (req, res) => {
+  if (
+    (req.headers["user-agent"].split("-").includes("9.40"),
+    req.headers["user-agent"].split("-").includes("9.41"),
+    req.headers["user-agent"].split("-").includes("10.00"),
+    req.headers["user-agent"].split("-").includes("10.10"),
+    req.headers["user-agent"].split("-").includes("10.20"),
+    req.headers["user-agent"].split("-").includes("10.30"),
+    req.headers["user-agent"].split("-").includes("10.40"))
+  ) {
+    res.status(404).end();
+  }
   res.status(204).end(); // no hotfixed for now
 });
 
@@ -69,16 +80,7 @@ app.get("/api/feedback/log-snapshot/*", (req, res) => {
 });
 
 app.get("/api/calendar/v1/timeline", (req, res) => {
-  var currentSeason = req.headers["user-agent"].split("-")[1].split(".")[0];
-  var currentVersion = req.headers["user-agent"].split("-");
-  var season = currentSeason;
-  if (currentSeason == "10") {
-    season = "x";
-  }
-  //if()
-  console.log("DEBUG: Version: " + currentVersion);
-
-  console.log("DEBUG: Season: " + season);
+  currentSeason = req.headers["user-agent"].split("-")[1].split(".")[0];
   // timings
   const weeklyStoreEnd = "9999-01-01T00:00:00Z";
   const sectionStoreEnds = "9999-01-01T00:00:00.000Z";
@@ -87,7 +89,7 @@ app.get("/api/calendar/v1/timeline", (req, res) => {
   // events
   var activeEvents = [
     {
-      eventType: `EventFlag.LobbySeason${season}`,
+      eventType: `EventFlag.LobbySeason${currentSeason}`,
       activeUntil: "9999-12-31T23:59:59.999Z",
       activeSince: "2019-12-31T23:59:59.999Z",
     },
@@ -109,8 +111,8 @@ app.get("/api/calendar/v1/timeline", (req, res) => {
             state: {
               activeStorefronts: [],
               eventNamedWeights: {},
-              seasonNumber: season,
-              seasonTemplateId: `AthenaSeason:athenaseason${season}`,
+              seasonNumber: currentSeason,
+              seasonTemplateId: `AthenaSeason:athenaseason${currentSeason}`,
               matchXpBonusPoints: 0,
               seasonBegin: "2018-01-01T13:00:00Z",
               seasonEnd: "9999-01-01T14:00:00Z",
@@ -133,11 +135,15 @@ app.get("/api/calendar/v1/timeline", (req, res) => {
 });
 
 app.get("/api/game/v2/events/tournamentandhistory/*", (req, res) => {
-  res.status(204);
+  res.status(204).end();
 });
 
 app.post("/api/game/v2/chat/*", (req, res) => {
   res.json({ GlobalChatRooms: [{ roomName: "fortnite" }] });
+});
+
+app.get("/api/receipts/v1/account/:accountId/receipts", (req, res) => {
+  res.status(204).end();
 });
 
 module.exports = app;

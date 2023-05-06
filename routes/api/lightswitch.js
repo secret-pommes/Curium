@@ -1,17 +1,20 @@
 const express = require("express");
 const app = express();
+const mongo = require("mongoose");
 
-// maybe i will add the alpha lightswitch later idk
+const { verifyClient } = require("../../struct/verify.js");
+
+
 
 const banned = false;
 
-app.get("/api/service/bulk/status", (req, res) => {
+app.get("/api/service/bulk/status", /*verifyClient,*/ (req, res) => {
   res.json([
     {
       serviceInstanceId: "fortnite",
       status: "UP",
-      message: "fortnite is up.",
-      maintenanceUri: null,
+      message: "fortnite is online.",
+      maintenanceUri: "https://status.secrets-server.xyz/curium",
       overrideCatalogIds: ["a7f138b2e51945ffbfdacc1af0541053"],
       allowedActions: ["PLAY", "DOWNLOAD"],
       banned: banned,

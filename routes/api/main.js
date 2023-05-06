@@ -14,16 +14,15 @@ app.get("/waitingroom/api/waitingroom", (req, res) => {
   res.status(204).end();
 });
 
-app.get("/content/api/pages/fortnite-game", (req, res) => {
-  const content = require("../../responses/content.json");
-  res.json(content);
-});
-
 app.get("/catalog/api/shared/bulk/offers", (req, res) => {
   res.sendStatus(204);
 });
 
 app.get("/eulatracking/api/shared/agreements/*", (req, res) => {
+  res.json([]);
+});
+
+app.get("/socialban/api/public/v1/:accountId/ban", (req, res) => {
   res.json([]);
 });
 

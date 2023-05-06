@@ -68,7 +68,9 @@ setTimeout(() => {
 app.use(require("./struct/accountSystem.js")); // Account Creation System
 app.use(require("./routes/index.js")); // Website Endpoints
 app.use(require("./routes/api/main.js")); // some endpoints that nobody cares
+app.use("/content", require("./routes/api/content.js"))  // fortnite's content route
 app.use("/account", require("./routes/api/account.js")); // fortnite's account route
 app.use("/fortnite", require("./routes/api/fortnite.js")); // fortnite's fortnite route
 app.use("/friends", require("./routes/api/friends.js")); // fortnite's friends route
+app.use("/party", require("./routes/api/party.js")); // fortnite's party route
 app.use("/lightswitch", require("./routes/api/lightswitch.js")); // fortnite's lightswitch (server-status)
