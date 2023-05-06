@@ -9,18 +9,22 @@ Codebase is written in JavaScript (node.js)
 
 ### Supported Versions:
 
--Season 4 - 5
+Tested Versions:
 <br>
--Season 6 - 9 (but with not player pawn in lobby)
+-Season 4 - 10 working fine [v4.5 - 10.40]
+<br>
+-Season 6 - 8 does not have a player pawn in lobby.
 
 ### Features:
 
 -Go into the Lobby
 <br>
--Account System (WIP)
+-Creating account on website
+<br>
 
 ### Planned:
-
+-Using account in Fortnite (WIP)
+<br>
 -Cloudstorage
 <br>
 -ClientSettings
