@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 
 const config = require("../../configs/config.json");
+const athenaSchema = require("../../struct/mongo/athenaSchema.js");
 var currentSeason = "1";
 
 app.get("/api/v2/versioncheck/*", (req, res) => {
@@ -144,6 +145,34 @@ app.post("/api/game/v2/chat/*", (req, res) => {
 
 app.get("/api/receipts/v1/account/:accountId/receipts", (req, res) => {
   res.status(204).end();
+});
+
+// credits to: Milxnor | Source: https://github.com/Milxnor/LawinServerV2 at mcp.js
+app.post("/fortnite/api/game/v2/profile/:accountId/dedicated_server/:operation", async (req, res) => {
+  const profiles = await athenaSchema.findOne({ accountId: req.params.accountId });
+  var profile = profiles.profiles[req.query.profileId];
+
+  var ApplyProfileChanges = [];
+  var BaseRevision = profile.rvn || 0;
+  var QueryRevision = req.query.rvn || -1;
+
+  if (QueryRevision != BaseRevision) {
+      ApplyProfileChanges = [{
+          "changeType": "fullProfileUpdate",
+          "profile": profile
+      }];
+  }
+
+  res.json({
+      "profileRevision": profile.rvn || 0,
+      "profileId": req.query.profileId || "athena",
+      "profileChangesBaseRevision": BaseRevision,
+      "profileChanges": ApplyProfileChanges,
+      "profileCommandRevision": profile.commandRevision || 0,
+      "serverTime": new Date().toISOString(),
+      "responseVersion": 1
+  })
+  res.end();
 });
 
 module.exports = app;

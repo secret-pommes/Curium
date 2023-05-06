@@ -34,4 +34,41 @@ app.get("/assets/js/jquery.min.js", (req, res) => {
   res.sendFile(path.join(__dirname, "/../public/assets/js/jquery.min.js"));
 });
 
+// fortnite tournament files
+app.get("/assets/tournament/loading_screen_image", (req, res) => {
+  res.sendFile(
+    path.join(
+      __dirname,
+      "/../public/assets/fortnite/tournament/loading_screen_image.png"
+    )
+  );
+});
+
+app.get("/assets/tournament/poster_back_image", (req, res) => {
+  res.sendFile(
+    path.join(
+      __dirname,
+      "/../public/assets/fortnite/tournament/poster_back_image.png"
+    )
+  );
+});
+
+app.get("/assets/tournament/poster_front_image", (req, res) => {
+  res.sendFile(
+    path.join(
+      __dirname,
+      "/../public/assets/fortnite/tournament/poster_front_image.png"
+    )
+  );
+});
+
+app.get("/assets/tournament/playlist_tile_image", (req, res) => {
+  res.sendFile(
+    path.join(
+      __dirname,
+      "/../public/assets/fortnite/tournament/playlist_tile_image.png"
+    )
+  );
+});
+
 module.exports = app;

@@ -5,6 +5,7 @@
   },
   "Server": {
     "UseExternDomain": true,
+    "Domain":"127.0.0.1",
     "Port": 8443
   },
   "XMPP": {

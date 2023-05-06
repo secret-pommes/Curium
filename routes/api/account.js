@@ -75,4 +75,8 @@ app.get("/api/oauth/verify", (req, res) => {
   res.status(204).end();
 });
 
+app.get("/api/epicdomains/ssodomains", (req, res) => {
+  res.json([]);
+});
+
 module.exports = app;

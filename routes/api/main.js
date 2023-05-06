@@ -26,4 +26,8 @@ app.get("/socialban/api/public/v1/:accountId/ban", (req, res) => {
   res.json([]);
 });
 
+app.get("/api/v1/events/Fortnite/download/*", (req, res) => {
+  res.status(204).end();
+});
+
 module.exports = app;

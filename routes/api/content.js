@@ -1,9 +1,31 @@
 const express = require("express");
 const app = express();
 
+const config = require("../../configs/config.json");
+
+var protocol = "http";
 var season = 1;
 var currentSeason = 1;
 var stage = `season${season}`;
+var domain = config.Server.Domain;
+
+// finds out witch port is getting used.
+if (config.Server.UseExternDomain == true) {
+  port = 443;
+} else if (config.Server.UseExternDomain == false) {
+  port = config.Server.Port;
+} else if (config.devMode.active == true) {
+  port = config.devMode.Port;
+}
+
+// finds out witch protocol is getting used.
+if (config.Server.UseExternDomain == true) {
+  protocol = "https";
+} else if (config.Server.UseExternDomain == false) {
+  protocol = "https";
+} else if (config.devMode.active == true) {
+  protocol = "http";
+}
 
 // changes season 10 to season x for background.
 if ((currentSeason = 10)) {
@@ -1597,6 +1619,51 @@ app.get("/api/pages/fortnite-game", (req, res) => {
       },
       _activeDate: "2018-08-06T19:00:26.217Z",
       lastModified: "2021-12-01T15:55:56.012Z",
+      _locale: "en-US",
+    },
+    tournamentinformation: {
+      conversion_config: {
+        containerName: "tournament_info",
+        _type: "Conversion Config",
+        enableReferences: true,
+        contentName: "tournaments",
+      },
+      "jcr:isCheckedOut": true,
+      tournament_info: {
+        tournaments: [
+          {
+            title_color: "FFFFFF", // doesnt but the backend has it
+            loading_screen_image: `${protocol}://${domain}:${port}/assets/tournament/loading_screen_image`,
+            background_text_color: "130026",
+            background_right_color: "130026",
+            poster_back_image: `${protocol}://${domain}:${port}/assets/tournament/poster_back_image`,
+            _type: "Tournament Display Info",
+            tournament_display_id: "BackendTournament",
+            highlight_color: "F7FF00",
+            schedule_info: "",
+            primary_color: "FFFFFF",
+            flavor_description: "",
+            poster_front_image: `${protocol}://${domain}:${port}/assets/tournament/poster_front_image`,
+            short_format_title: "",
+            title_line_2: "Tournament",
+            title_line_1: "backend testing",
+            shadow_color: "8F20FF",
+            details_description: "backend testing",
+            background_left_color: "9545FF",
+            long_format_title: "",
+            poster_fade_color: "29C2FE",
+            secondary_color: "9545FF",
+            playlist_tile_image: `${protocol}://${domain}:${port}/assets/tournament/playlist_tile_image`,
+            base_color: "FFFFFF",
+          },
+        ],
+        _type: "Tournaments Info",
+      },
+      _title: "tournamentinformation",
+      _noIndex: false,
+      "jcr:baseVersion": "0",
+      _activeDate: "2018-08-06T19:00:26.217Z",
+      lastModified: "2019-10-29T22:32:52.686Z",
       _locale: "en-US",
     },
     koreancafe: {
