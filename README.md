@@ -1,4 +1,4 @@
-#Curium
+# Curium
 <br>
 A Fortnite private server, made for Nintendo Switch
 <br><br>
