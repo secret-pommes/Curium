@@ -8,6 +8,6 @@ A Fortnite private server, made for Nintendo Switch
 <br>
 <br>
 
-###Bugs:
+### Bugs:
 <br>
 Player Pawn is not displaying on Season 6 up to Season 8, thanks to: /api/public/account/*
