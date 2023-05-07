@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const https = require("https");
-const mongo = require("mongoose");
 const path = require("path");
 const fs = require("fs");
 
@@ -18,7 +17,6 @@ const SSLServer = https.createServer(
   app
 );
 
-// needed for account system to work
 app.use(express.urlencoded({ extended: true }));
 
 if (config.Server.UseExternDomain == true) {
@@ -56,17 +54,7 @@ if (config.Server.UseExternDomain == true) {
   });
 }
 
-// dosnt look good but its working ^^
-// 20 ms so log looks better :>
-setTimeout(() => {
-  mongo
-    .connect(config.DATABASE.connect)
-    .then(functions.ServerRPC(`Server is now connected to MongoDB!`));
-}, 20);
-
 // rest of the server structure
-app.use(require("./struct/accountSystem.js")); // Account Creation System
-app.use(require("./routes/index.js")); // Website Endpoints
 app.use(require("./routes/api/main.js")); // other endpoints
 app.use("presence", require("./routes/api/presence.js")); // fortnite's presence route
 app.use("/content", require("./routes/api/content.js")); // fortnite's content route

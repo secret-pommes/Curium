@@ -1,38 +1,27 @@
 const express = require("express");
 const app = express();
-const jwt = require("jsonwebtoken");
 
-const accountSchema = require("../../struct/mongo/accountSchema.js");
-const athenaSchema = require("../../struct/mongo/athenaSchema.js");
-const friendSchema = require("../../struct/mongo/friendSchema.js");
-const frontendSchema = require("../../struct/mongo/frontendSchema.js");
-
-// accountId of player
-var accountId = "Secret1337";
+const config = require("../../configs/config.json");
+var accountId = config.user.username;
 
 app.post("/api/oauth/token", async (req, res) => {
-  var access_token;
-  var device_id;
-  
-
   res.json({
-    access_token: `eg1~${access_token}`,
+    access_token: `fortniteaccesstoken`,
     expires_in: 28800,
     expires_at: "9999-12-02T01:12:01.100Z",
     token_type: "bearer",
-    refresh_token: `eg1~${access_token}`,
+    refresh_token: `fortniteaccesstoken`,
     refresh_expires: 86400,
     refresh_expires_at: "9999-12-02T01:12:01.100Z",
-    account_id: req.user.accountId,
+    account_id: accountId,
     client_id: "fortniteclientid",
     internal_client: true,
     client_service: "fortnite",
-    displayName: req.user.username,
+    displayName: accountId,
     app: "fortnite",
-    in_app_id: req.user.accountId,
-    device_id: device_id,
+    in_app_id: accountId,
+    device_id: "fortnitedeviceid",
   });
-  console.log(accountId);
 });
 
 app.get("/api/public/account/*/externalAuths", (req, res) => {
@@ -50,11 +39,10 @@ app.delete("/api/oauth/sessions/kill", (req, res) => {
 });
 
 app.get("/api/public/account/:accountId", (req, res) => {
-  accountId = req.params.accountId;
   res.json({
-    id: req.params.accountId,
-    displayName: req.params.accountId,
-    name: req.params.accountId,
+    id: accountId,
+    displayName: accountId,
+    name: accountId,
     email: accountId + "@epicgames.com",
     failedLoginAttempts: 0,
     lastLogin: new Date().toISOString(),
@@ -74,20 +62,9 @@ app.get("/api/public/account/:accountId", (req, res) => {
   console.log(accountId);
 });
 
+// need to update to work on S6 - S8
 app.get("/api/public/account", (req, res) => {
-  var final = [];
-
-  if (Array.isArray(req.query.accountId)) {
-    var users = accountSchema
-      .find({
-        accountId: {
-          $in: req.query.accountId,
-        },
-        banned: false,
-      })
-      .lean();
-  }
-  res.json(final);
+  res.status(204);
 });
 
 app.get("/api/oauth/verify", (req, res) => {

@@ -1,18 +1,18 @@
 {
+  "user": {
+    "username": "username"
+  },
   "devMode": {
     "active": false,
     "Port": 8080
   },
   "Server": {
     "UseExternDomain": true,
-    "Domain":"127.0.0.1",
+    "Domain": "127.0.0.1",
     "Port": 8443
   },
   "XMPP": {
     "Port": 80
-  },
-  "DATABASE": {
-    "connect": "mongodb://127.0.0.1:27017/database_curium"
   },
   "Matchmaking": {
     "blockNonSwitchPlatforms": false,
