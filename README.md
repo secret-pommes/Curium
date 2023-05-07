@@ -1,48 +1,13 @@
-# Curium
-
-A Fortnite backend made for Nintendo Switch (should work for PC)
+#Curium
 <br>
-<br>
-Codebase is written in JavaScript (node.js)
-<br>
-<br>
-
-### Supported Versions:
-
-Tested Versions:
-<br>
--Season 4 - 10 working fine [v4.5 - 10.40]
-<br>
--Season 6 - 8 does not have a player pawn in lobby.
-
-### Features:
-
--Go into the Lobby
-<br>
--Creating account on website
-<br>
-
-### Planned:
--Using account in Fortnite (WIP)
-<br>
--Cloudstorage
-<br>
--ClientSettings
-<br>
--XMPP
-<br>
--Matchmaker
-<br>
--Queue
-<br>
--Battle Pass and leveling in the pass.
+A Fortnite private server, made for Nintendo Switch
 <br><br>
+### Supported-Version:
+<br>
+-Season 4 up to Season X [v4.4 - v10.40]
+<br>
+<br>
 
-### GameServer-Part:
-
--Quests
+###Bugs:
 <br>
--Item Shop
-<br>
--Vbucks System
-<br>
+Player Pawn is not displaying on Season 6 up to Season 8, thanks to: /api/public/account/*
