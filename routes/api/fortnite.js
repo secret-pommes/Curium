@@ -5,8 +5,46 @@ const config = require("../../configs/config.json");
 const athenaSchema = require("../../struct/mongo/athenaSchema.js");
 var currentSeason = "1";
 
-app.get("/api/v2/versioncheck/*", (req, res) => {
+app.get("/api*/versioncheck*", (req, res) => {
   res.json({ type: "NO_UPDATE" });
+});
+
+// the backend isnt really supporting S10+ but whatever.
+app.get("/api/version", (req, res) => {
+  res.json({
+    app: "fortnite",
+    serverDate: new Date(),
+    overridePropertiesVersion: "unknown",
+    cln: "17951730",
+    build: "444",
+    moduleName: "Fortnite-Core",
+    buildDate: "2021-10-27T21:00:51.697Z",
+    version: "18.30",
+    branch: "Release-18.30",
+    modules: {
+      "Epic-LightSwitch-AccessControlCore": {
+        cln: "17237679",
+        build: "b2130",
+        buildDate: "2021-08-19T18:56:08.144Z",
+        version: "1.0.0",
+        branch: "trunk",
+      },
+      "epic-xmpp-api-v1-base": {
+        cln: "5131a23c1470acbd9c94fae695ef7d899c1a41d6",
+        build: "b3595",
+        buildDate: "2019-07-30T09:11:06.587Z",
+        version: "0.0.1",
+        branch: "master",
+      },
+      "epic-common-core": {
+        cln: "17909521",
+        build: "3217",
+        buildDate: "2021-10-25T18:41:12.486Z",
+        version: "3.0",
+        branch: "TRUNK",
+      },
+    },
+  });
 });
 
 app.get("/api/cloudstorage/system", (req, res) => {
@@ -148,31 +186,38 @@ app.get("/api/receipts/v1/account/:accountId/receipts", (req, res) => {
 });
 
 // credits to: Milxnor | Source: https://github.com/Milxnor/LawinServerV2 at mcp.js
-app.post("/fortnite/api/game/v2/profile/:accountId/dedicated_server/:operation", async (req, res) => {
-  const profiles = await athenaSchema.findOne({ accountId: req.params.accountId });
-  var profile = profiles.profiles[req.query.profileId];
+app.post(
+  "/fortnite/api/game/v2/profile/:accountId/dedicated_server/:operation",
+  async (req, res) => {
+    const profiles = await athenaSchema.findOne({
+      accountId: req.params.accountId,
+    });
+    var profile = profiles.profiles[req.query.profileId];
 
-  var ApplyProfileChanges = [];
-  var BaseRevision = profile.rvn || 0;
-  var QueryRevision = req.query.rvn || -1;
+    var ApplyProfileChanges = [];
+    var BaseRevision = profile.rvn || 0;
+    var QueryRevision = req.query.rvn || -1;
 
-  if (QueryRevision != BaseRevision) {
-      ApplyProfileChanges = [{
-          "changeType": "fullProfileUpdate",
-          "profile": profile
-      }];
+    if (QueryRevision != BaseRevision) {
+      ApplyProfileChanges = [
+        {
+          changeType: "fullProfileUpdate",
+          profile: profile,
+        },
+      ];
+    }
+
+    res.json({
+      profileRevision: profile.rvn || 0,
+      profileId: req.query.profileId || "athena",
+      profileChangesBaseRevision: BaseRevision,
+      profileChanges: ApplyProfileChanges,
+      profileCommandRevision: profile.commandRevision || 0,
+      serverTime: new Date().toISOString(),
+      responseVersion: 1,
+    });
+    res.end();
   }
-
-  res.json({
-      "profileRevision": profile.rvn || 0,
-      "profileId": req.query.profileId || "athena",
-      "profileChangesBaseRevision": BaseRevision,
-      "profileChanges": ApplyProfileChanges,
-      "profileCommandRevision": profile.commandRevision || 0,
-      "serverTime": new Date().toISOString(),
-      "responseVersion": 1
-  })
-  res.end();
-});
+);
 
 module.exports = app;

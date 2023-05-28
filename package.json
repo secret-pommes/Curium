@@ -19,5 +19,8 @@
     "mongoose": "^7.1.0",
     "nodemon": "^2.0.22",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "eslint": "^8.41.0"
   }
 }
