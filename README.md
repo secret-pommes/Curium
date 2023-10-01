@@ -1,4 +1,6 @@
-# Curium
+# Curium (DISCONTINUED)
+<br>
+### This is my first fortnite backend i made so dont expect the best experience while using it.
 <br>
 A Fortnite private server, made for Nintendo Switch
 <br><br>
