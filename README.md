@@ -1,9 +1,7 @@
 # Curium (DISCONTINUED)
-<br>
-### This is my first fortnite backend i made so dont expect the best experience while using it.
-<br>
-A Fortnite private server, made for Nintendo Switch
-<br><br>
+
+
+###https://github.com/secret-pommes/SwitchMP-Backend (aka Curium-V3) is a way better version, with MCP, Accounts, XMPP and more.
 
 ### Supported-Versions:
 <br>
